@@ -1,0 +1,13 @@
+$ cd folder1
+$ ls
+dir folder2
+51000 file1
+52000 file2
+$ cd folder2
+$ ls
+100 file3
+$ cd ..
+$ cd ..
+$ cd folder3
+$ ls
+99000 file4
