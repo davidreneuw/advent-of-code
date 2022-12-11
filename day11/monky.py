@@ -59,3 +59,4 @@ for i, monkey in enumerate(group):
     score.append(monkey.investigate)
 score.sort()
 print(score[-1]*score[-2])
+print("made a slight change")
