@@ -28,15 +28,24 @@ def get_string_remainder(num: str, digit: str):
     return num[i+1:]
 
 def make_max_n_digit_number(num: str, n: int, curr: str):
-    if n==0:
-        return curr
-    possible_digits = num[:len(num)-n]
+    possible_digits = num[:len(num)-n+1]
     max = get_max_digit(possible_digits)
     remainder = get_string_remainder(num, max)
-    print("curr",curr,"max",max,"remainder",remainder,"n",n)
-    make_max_n_digit_number(remainder, n-1, curr+max)
+    n -= 1
+    if n == 0:
+        return curr+max
+    else:
+        return make_max_n_digit_number(remainder, n, curr+max)
+    
+def joltage2(bank: str):
+    return make_max_n_digit_number(bank, 12, "")
 
-max = make_max_n_digit_number("00072954111", 3, "")
-print(max)
+def find_total_joltage2(banks: list[str]):
+    joltages = []
+    for bank in banks:
+        joltages.append(joltage2(bank))
+    print(sum([int(joltage) for joltage in joltages]))
+
+find_total_joltage2(input)
 
 
